@@ -1,0 +1,17 @@
+using System;
+using System.Collections;
+
+
+namespace 연습용
+{
+  
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Hello World!");
+        }
+       
+    }
+}
