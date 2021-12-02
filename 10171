@@ -1,0 +1,27 @@
+using System;
+using System.Collections;
+
+
+namespace 연습용
+{
+  
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string str1,str2,str3,str4;
+            str1 = @"\    /\";
+            str2 = @" )  ( ')";
+            str3 = @"(  /  )";
+            str4 = @" \(__)|";
+
+
+            Console.WriteLine(str1);
+            Console.WriteLine(str2);
+            Console.WriteLine(str3);
+            Console.WriteLine(str4);
+        }
+       
+    }
+}
