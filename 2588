@@ -1,0 +1,31 @@
+using System;
+using System.Collections;
+
+
+namespace 연습용
+{
+
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string a = Console.ReadLine();
+            string b = Console.ReadLine();
+
+            int A = int.Parse(a);
+            int C = A * int.Parse(b.Substring(2, 1));
+            int D = A* int.Parse(b.Substring(1, 1));
+            int E = A * int.Parse(b.Substring(0, 1));
+            int sum = C+(10*D) + (100*E);
+
+            Console.WriteLine(C);
+            Console.WriteLine(D);
+            Console.WriteLine(E);
+            Console.WriteLine(sum);
+
+
+        }
+
+    }
+}
