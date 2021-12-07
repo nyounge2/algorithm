@@ -1,0 +1,21 @@
+using System;
+
+namespace TEST
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+
+            string[] str = Console.ReadLine().Split();
+
+            double a = int.Parse(str[0]); // 올라가는 높이  4 
+            double b = int.Parse(str[1]); // 미끄러지는 높이 2
+            double c = int.Parse(str[2]); // 높이 100
+            double day;
+
+            day = Math.Ceiling((c-b) / (a-b));
+            Console.WriteLine(day);
+        }
+    }
+}
