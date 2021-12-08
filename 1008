@@ -8,6 +8,7 @@ namespace 연습용
 
     class Program
     {
+    //1008
         static void Main(string[] args)
         {
             string[] s = Console.ReadLine().Split(" ");
