@@ -10,6 +10,7 @@ namespace 연습용
     {
         static void Main(string[] args)
         {
+//10718번
             Console.WriteLine("강한친구 대한육군");
             Console.WriteLine("강한친구 대한육군");
         }
