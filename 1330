@@ -6,6 +6,7 @@ namespace TEST
     {
         static void Main(string[] args)
         {
+//1330
             string[] str = Console.ReadLine().Split();
             int a = int.Parse(str[0]);
             int b = int.Parse(str[1]);
