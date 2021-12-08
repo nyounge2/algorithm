@@ -10,6 +10,7 @@ namespace 연습용
     {
         static void Main(string[] args)
         {
+        //10171
             string str1,str2,str3,str4;
             str1 = @"\    /\";
             str2 = @" )  ( ')";
