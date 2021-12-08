@@ -1,0 +1,65 @@
+using System;
+
+namespace TEST
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+
+            string[] str = Console.ReadLine().Split();
+
+            int a = int.Parse(str[0]);
+            int result = 0; ;
+            int x = a / 3;
+            int y = a / 5;
+            if((a%5).Equals(0))
+            {
+                result = y;
+            }
+            else if((a%3).Equals(0))
+            {
+                result = x;
+                for(int i = y; i>0; i-- )
+                {
+                    if( ( (a -( i * 5 ) ) % 3).Equals(0))
+                    {
+                        y = i;
+                        x = (a - ( i * 5) ) / 3;
+                        result = y + x;
+                        break;
+                    }
+                    else if(i.Equals(1))
+                    {
+                        
+                        x = a / 3;
+                        result = x;
+                    }
+                }
+            }
+            else
+            {
+                if(a<=5)
+                {
+                    result = -1;
+                }
+
+                for (int i = y; i > 0; i--)
+                {
+                    if (((a - (i * 5)) % 3).Equals(0))
+                    {
+                        y = i;
+                        x = (a - (i * 5)) / 3;
+                        result = y + x;
+                        break;
+                    }
+                    else
+                    {
+                        result = -1;
+                    }
+                }
+            }
+            Console.WriteLine(result);
+        }
+    }
+}
