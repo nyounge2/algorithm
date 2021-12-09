@@ -8,17 +8,13 @@ namespace TEST
         {
             string testCase = Console.ReadLine();
             int testNum = int.Parse(testCase);
-            string[] floor = new string[testNum]; // 층
-            string[] room = new string[testNum]; // 호수
             int[] floorNum = new int[testNum];
             int[] roomNum = new int[testNum];
 
             for (int i = 0; i < testNum; i ++)
             {
-                floor[i] = Console.ReadLine();
-                room[i] = Console.ReadLine();
-                floorNum[i] = int.Parse(floor[i]);  // 층
-                roomNum[i] = int.Parse(room[i]);  // 호수
+                floorNum[i] = int.Parse(Console.ReadLine());  // 층
+                roomNum[i] = int.Parse(Console.ReadLine());  // 호수
             }
 
             int floorMin = floorNum[0];
