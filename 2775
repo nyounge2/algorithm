@@ -82,3 +82,80 @@ namespace TEST
         }
     }
 }
+--------------------------------------------------------------- 
+// 수정본
+
+using System;
+
+namespace TEST
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int testNum = int.Parse(Console.ReadLine());
+            int[] floorNum = new int[testNum];
+            int[] roomNum = new int[testNum];
+
+            for (int i = 0; i < testNum; i ++)
+            {
+                floorNum[i] = int.Parse(Console.ReadLine());  // 층
+                roomNum[i] = int.Parse(Console.ReadLine());  // 호수
+            }
+
+            int floorMin = floorNum[0];
+            int floorMax = 0;
+            int roomMin = roomNum[0];
+            int roomMax = 0;
+
+            for(int i=0; i < floorNum.Length; i++)
+            {
+                if(floorMin > floorNum[i])
+                {
+                    floorMin = floorNum[i];
+                }
+                if(floorMax < floorNum[i])
+                {
+                    floorMax = floorNum[i];
+                }
+            }
+
+            for (int i = 0; i < roomNum.Length; i++)
+            {
+                if (roomMin > roomNum[i])
+                {
+                    roomMin = roomNum[i];
+                }
+                if (roomMax < roomNum[i])
+                {
+                    roomMax = roomNum[i];
+                }
+            }
+
+            int[] zerofloor = new int[roomMax];
+            int[,] answer = new int[floorMax, roomMax];     // 총 인원
+            
+            for(int i = 0; i < roomMax; i++)
+            {
+                zerofloor[i] = i + 1; // 0층 배열
+            }
+
+            for (int i = 0; i < floorMax; i++)
+            {
+                for (int k = 0; k < roomMax; k++)
+                {
+                    answer[i, k] = k.Equals(0) ? 1 : i.Equals(0) ? zerofloor[k] + answer[i, k - 1] : answer[i - 1, k] + answer[i, k - 1];    //1;
+                }
+            }
+            for (int i = 0; i < testNum; i++)   // 테스트케이스 만큼
+            {
+                Console.WriteLine(answer[floorNum[i] - 1, roomNum[i] - 1]);
+            }
+        }
+    }
+}
+
+
+
+
+
