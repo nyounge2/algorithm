@@ -1,0 +1,88 @@
+using System;
+
+namespace TEST
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string testCase = Console.ReadLine();
+            int testNum = int.Parse(testCase);
+            string[] floor = new string[testNum]; // 층
+            string[] room = new string[testNum]; // 호수
+            int[] floorNum = new int[testNum];
+            int[] roomNum = new int[testNum];
+
+            for (int i = 0; i < testNum; i ++)
+            {
+                floor[i] = Console.ReadLine();
+                room[i] = Console.ReadLine();
+                floorNum[i] = int.Parse(floor[i]);  // 층
+                roomNum[i] = int.Parse(room[i]);  // 호수
+            }
+
+            int floorMin = floorNum[0];
+            int floorMax = 0;
+            int roomMin = roomNum[0];
+            int roomMax = 0;
+
+            for(int i=0; i < floorNum.Length; i++)
+            {
+                if(floorMin > floorNum[i])
+                {
+                    floorMin = floorNum[i];
+                }
+                if(floorMax < floorNum[i])
+                {
+                    floorMax = floorNum[i];
+                }
+            }
+
+            for (int i = 0; i < roomNum.Length; i++)
+            {
+                if (roomMin > roomNum[i])
+                {
+                    roomMin = roomNum[i];
+                }
+                if (roomMax < roomNum[i])
+                {
+                    roomMax = roomNum[i];
+                }
+            }
+
+            int[] zerofloor = new int[roomMax];
+            int[,] answer = new int[floorMax, roomMax];     // 총 인원
+            
+            for(int i = 0; i < roomMax; i++)
+            {
+                zerofloor[i] = i + 1; // 0층 배열
+            }
+
+            for (int i = 0; i < floorMax; i++)
+            {
+                for (int k = 0; k < roomMax; k++)
+                {
+                    if (k.Equals(0)) // 1호는 1 고정
+                    {
+                        answer[i, k] = 1;
+                    }
+                    else
+                    {
+                        if (i.Equals(0))    // 1층
+                        {
+                            answer[i, k] = zerofloor[k] + answer[i, k - 1];
+                        }
+                        else if (i > 0) // 2층 이상
+                        {
+                            answer[i, k] = answer[i - 1, k] + answer[i, k - 1];
+                        }
+                    }
+                }
+            }
+            for (int i = 0; i < testNum; i++)   // 테스트케이스 만큼
+            {
+                Console.WriteLine(answer[floorNum[i] - 1, roomNum[i] - 1]);
+            }
+        }
+    }
+}
